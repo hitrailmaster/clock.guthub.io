@@ -9,7 +9,7 @@
     >
         <g
           data-element="container"
-          transform="translate(71.78571428571429 21.785714285714292) scale(0.2857142857142857)"
+          transform="translate(7 -42) scale(0.5)"
         >
           <g>
             <path
@@ -53,7 +53,7 @@
         <g>
           <g
             data-element="icon"
-            transform="scale(0.17140308494400538) translate(621.2473788071941 329.53689744737414)"
+            transform="scale(0.28) translate(270 100)"
           >
             <path
               id="color_x5F_1_11_"

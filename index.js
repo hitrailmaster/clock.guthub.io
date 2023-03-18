@@ -1,6 +1,13 @@
 let deferredPrompt;
 const addBtn = document.querySelector(".add-button");
 addBtn.style.display = "none";
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js").then(function () {
+    console.log("Service Worker Registered");
+  });
+}
+
 window.addEventListener("beforeinstallprompt", (e) => {
   // 防止 Chrome 67 及更早版本自动显示安装提示
   e.preventDefault();
