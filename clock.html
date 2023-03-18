@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <style>
-    html,
-    body,
-    svg,
-    div {
-      height: 100%;
-      background-color: #ecf0f3;
-    }
-    h1 {
-      font-size: 5em;
-      margin: 0;
-      line-height: 27.5vh;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    svg {
-      height: 35vh;
-      width: 35vh;
-      border-radius: 50%;
-      box-shadow: 10px 0 20px rgba(0, 0, 0, 0.2),
-        -10px 0 20px rgba(255, 255, 255, 0.6);
-      /* display: none; */
-    }
-    line {
-      transform-origin: 250px 250px;
-    }
-    .wrapper {
-      width: 45vh;
-      height: 45vh;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      /* background-color: white; */
-      box-shadow: 20px 0 30px rgba(236, 240, 243, 0.2) inset,
-        -20px 0 30px rgba(0, 0, 0, 0.2) inset, 20px 20px 30px rgba(0, 0, 0, 0.2),
-        -20px -20px 30px rgba(236, 240, 243, 0.2);
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  </style>
+  <head>
+    <style>
+      html,
+      body,
+      svg,
+      div {
+        height: 100%;
+        background-color: #ecf0f3;
+      }
+      h1 {
+        font-size: 5em;
+        margin: 0;
+        line-height: 27.5vh;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      svg {
+        height: 35vh;
+        width: 35vh;
+        border-radius: 50%;
+        box-shadow: 10px 0 20px rgba(0, 0, 0, 0.2),
+          -10px 0 20px rgba(255, 255, 255, 0.6);
+        /* display: none; */
+      }
+      line {
+        transform-origin: 250px 250px;
+      }
+      .wrapper {
+        width: 45vh;
+        height: 45vh;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        /* background-color: white; */
+        box-shadow: 20px 0 30px rgba(236, 240, 243, 0.2) inset,
+          -20px 0 30px rgba(0, 0, 0, 0.2) inset,
+          20px 20px 30px rgba(0, 0, 0, 0.2),
+          -20px -20px 30px rgba(236, 240, 243, 0.2);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .add-button {
+        position: absolute;
+        top: 1px;
+        left: 1px;
+      }
+    </style>
+    <link rel="manifest" href="manifest.webmanifest" />
+  </head>
   <body>
     <h1>00:00:00</h1>
     <div class="wrapper">
@@ -213,29 +222,31 @@
       <line y1="236.6" x1="200" y2="219.2" x2="190" /> -->
       </svg>
     </div>
+    <button class="add-button">Add to home screen</button>
     <script>
       function setDate() {
-        var date = new Date()
+        var date = new Date();
         var h = date.getHours(),
           m = date.getMinutes(),
-          s = date.getSeconds()
-        var hour = document.getElementById('hour'),
-          minute = document.getElementById('minute'),
-          second = document.getElementById('second')
-        hour.setAttribute('from', (h / 24) * 360)
-        hour.setAttribute('to', (h / 24) * 360 + 360)
-        minute.setAttribute('from', (m / 60) * 360)
-        minute.setAttribute('to', (m / 60) * 360 + 360)
-        second.setAttribute('from', (s / 60) * 360)
-        second.setAttribute('to', (s / 60) * 360 + 360)
+          s = date.getSeconds();
+        var hour = document.getElementById("hour"),
+          minute = document.getElementById("minute"),
+          second = document.getElementById("second");
+        hour.setAttribute("from", (h / 24) * 360);
+        hour.setAttribute("to", (h / 24) * 360 + 360);
+        minute.setAttribute("from", (m / 60) * 360);
+        minute.setAttribute("to", (m / 60) * 360 + 360);
+        second.setAttribute("from", (s / 60) * 360);
+        second.setAttribute("to", (s / 60) * 360 + 360);
       }
       window.onload = function () {
-        setDate()
-        var title = document.getElementsByTagName('h1')[0]
+        setDate();
+        var title = document.getElementsByTagName("h1")[0];
         setInterval(() => {
-          title.innerText = /[0-9]{2}:[0-9]{2}:[0-9]{2}/.exec(new Date())[0]
-        }, 0)
-      }
+          title.innerText = /[0-9]{2}:[0-9]{2}:[0-9]{2}/.exec(new Date())[0];
+        }, 0);
+      };
     </script>
+    <script src="./index.js"></script>
   </body>
 </html>
